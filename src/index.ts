@@ -30,6 +30,7 @@ const createWindow = (): void => {
     mainWindow = new BrowserWindow({
     width: 1500,
     height: 875,
+   fullscreen: true,
 
     webPreferences: {
       nodeIntegration: true,
@@ -118,7 +119,7 @@ app.on('ready', () => {
     }
     const req = https.request(options, (res) => {
         let responseData = ''
-        
+
         res.on('data', (data) => {
             responseData += data
         })
@@ -139,7 +140,7 @@ app.on('ready', () => {
             }
         })
     })
-    
+
     req.on('error', (error) => {
         console.log('- Error while retrieving from url: ...')
         console.log('  Error:', error)

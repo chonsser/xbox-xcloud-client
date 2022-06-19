@@ -1,5 +1,7 @@
 # Xbox-xCloud-Client
 
+### Note – this fork is a simpler version of the original repo (1.2.0 beta 4). Simpler = instant play the stream from the 1st local console, always enter the fullscreen mode (easier to start the stream on Steam Deck) and use black background to reduce the visibility of the bars (16:9 ratio).
+
 [![Build/release](https://github.com/unknownskl/xbox-xcloud-client/actions/workflows/build.yml/badge.svg)](https://github.com/unknownskl/xbox-xcloud-client/actions/workflows/build.yml)
 
 xbox-xcloud-client is an open-source client for xCloud and xHome streaming made in Javascript and Typescript. The client is an application wrapper around [xbox-xcloud-player](https://github.com/unknownskl/xbox-xcloud-player).
