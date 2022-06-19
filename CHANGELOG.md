@@ -1,5 +1,27 @@
 # Changelog
 
+## v1.2.0-beta4 - 2022-06-16
+- Updated electron to version 19 and other dependencies
+- Update xCloud Regions in settings #140
+- Added support for Apple Silicon #139
+
+## v1.2.0-beta3 - 2022-05-06
+- Update dependencies
+- Improve bitrate and enable streaming of Xbox 360 games (credits to `award` on the OpenXbox discord)
+- Added an overview of connected gamepads on the settings page
+- Added button in streaming view to send the Nexus button press for gamepads that do not support the Xbox button
+
+## v1.2.0-beta2 - 2022-02-05
+- Rebuild branch from main and started over
+- Updated lots of dependencies to latest version
+- Updated xbox-xcloud-player to 1.2.0 with support for channel control v2. Should improve reliability of controls
+- Fixed homestreaming only login
+- Added experimental region switcher in settings
+
+## v1.2.0-beta1 - 2021-11-19
+- Updated lots of dependencies to latest version
+- Changed the login flow of the application and removed the popup
+
 ## v1.1.0 - 2021-10-15
 - Added link to MS Flight Simulator wiki page
 - Enable Dialog support only in stream configuration

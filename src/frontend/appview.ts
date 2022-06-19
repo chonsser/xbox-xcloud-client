@@ -26,7 +26,7 @@ export default class AppView {
         // appView.style.backgroundImage = "linear-gradient(0deg, rgba(26,27,30,1) 0%, rgba(26,27,30,1) 50%, rgba(0,212,255,0) 100%), url('assets/images/background_2.jpg')"
         const randomSelect = backgrounds[Math.floor(Math.random()*backgrounds.length)];
         appView.style.backgroundImage = randomSelect
-        
+
 
         // Fetch consoles...
         this._xCloudClient = new xCloudClient(this._application, 'uks.gssv-play-prodxhome.xboxlive.com', this._application._tokenStore._streamingToken, 'home')
@@ -46,11 +46,11 @@ export default class AppView {
                 const userProfileName = (<HTMLInputElement>document.getElementById('actionBarUserProfile'))
                 const userProfileLogo = (<HTMLInputElement>document.getElementById('userProfileLogo'))
                 const userProfileGamerscore = (<HTMLInputElement>document.getElementById('actionBarUserGamerscore'))
-                
+
 
                 const settings = profile.profileUsers[0].settings
                 for(const setting in settings){
-                    
+
                     switch(settings[setting].id){
                         case 'GameDisplayName':
                             // console.log('game name:', settings[setting].value)
@@ -159,18 +159,18 @@ export default class AppView {
         // Load user profile
         // this._apiClient.isAuthenticated().then(() => {
         //     console.log('User is authenticated.')
-        
+
         //     this._apiClient.getProvider('profile').getUserProfile().then((result:any) => {
         //         console.log('resolve user profile:', result)
-        
+
         //     }).catch(function(error:any){
         //         console.log('reject', error)
         //     })
-        
+
         // }).catch(function(error:any){
         //     console.log('User is not authenticated. Run authentication flow first.', error)
         // })
-          
+
     }
 
     showConsoles(consoles:any){
@@ -183,7 +183,7 @@ export default class AppView {
 
             if(powerState === 'On')
                 powerState = 'Powered on'
-            
+
             if(powerState === 'ConnectedStandby')
                 powerState = 'Standby (Connected)'
 
@@ -194,7 +194,7 @@ export default class AppView {
             consolesHtml += '   <p>'+powerState+'</p>'
 
             consolesHtml += '   <button class="btn btn-primary" id="console_connect_'+device+'">Connect</p>'
-            
+
             // consolesHtml += consoles[device].deviceName+' ('+consoles[device].consoleType+') - '+consoles[device].serverId+' isSameNetwork:'+!consoles[device].outOfHomeWarning+' <button>'+consoles[device].powerState+'</button> <button onclick="client.startSession(\'xhome\', \''+consoles[device].serverId+'\')">Start session</button>'
             consolesHtml += '</div>'
         }
@@ -208,7 +208,11 @@ export default class AppView {
         }
 
         consolesList.innerHTML = consolesHtml
-        
+
+        if (consoles.length === 1) {
+            this._application.startStream('xhome', consoles[0].serverId)
+        }
+
         for(const device in consoles) {
             document.getElementById('console_connect_'+device).addEventListener('click', (e:Event) => {
                 this._application.startStream('xhome', consoles[device].serverId)
