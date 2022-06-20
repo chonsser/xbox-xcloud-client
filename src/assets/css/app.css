@@ -178,6 +178,7 @@ body {
 /* Actionbar */
 
 #actionBar {
+    display: none !important;
     backdrop-filter: blur(20px);
 
     background: rgba(0, 0, 0, 0.55);
@@ -519,13 +520,21 @@ body {
 }
 
 #streamingView div#loadingScreen {
-    background: #000000;
-    width: 30%;
+    background: #ffffff;
     text-align: center;
     color: #ffffff;
     padding-top: 40px;
     padding-bottom: 40px;
-    margin: 118px auto;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+lottie-player {
+    width: 100vw;
+    padding-top: 10vh;
 }
 
 #streamingView div#loadingScreen .lds-ring {
@@ -542,6 +551,8 @@ body {
     padding-left: 30px;
     padding-right: 30px;
     font-size: 14px;
+    position: absolute;
+
 }
 
 #streamingView #debugLeftBottom {

@@ -33,7 +33,7 @@ import Plugins from './frontend/plugins'
 // import { OpentrackPluginFrontend as OpentrackPlugin } from './plugins/frontend/opentrack'
 
 const Application = new App()
-    
+
 // const plugins = new Plugins(Application)
 // plugins.load('opentrack', OpentrackPlugin)
 

@@ -102,7 +102,7 @@ export default class StreamingView {
 
         // Display loading screen...
         const actionBar = (<HTMLInputElement>document.getElementById('loadingScreen'))
-        actionBar.style.display = 'block'
+        actionBar.style.display = 'flex'
 
         // Handle network indicator
         const checkNetworkIndicator = () => {
@@ -147,7 +147,7 @@ export default class StreamingView {
                     this._networkIndicatorLastToggle = Math.floor(Date.now() / 1000)
                 }
             }
-            
+
             if(this._streamActive === false){
                 setTimeout(checkNetworkIndicator, 500)
             }
@@ -166,7 +166,7 @@ export default class StreamingView {
         const loadingStatus = (<HTMLInputElement>document.getElementById('loadingStatus'))
         loadingStatus.innerHTML = 'Connecting to console: '+ serverId +'<br /><span id="streamStatusDetailed">Provisioning...</span>'
 
-        
+
 
         this._streamClient.start(this._application, type, serverId).then(() => {
             console.log('StreamingView.js: Stream started for:', serverId)
@@ -175,7 +175,7 @@ export default class StreamingView {
             //     streamStatus.innerHTML = 'Connecting to '+ event.serverId
             //     console.log('STREAM CONNECT')
             // })
-    
+
             // this._streamClient._xCloudPlayer.addEventListener('openstream', (event:any) => {
             //     const streamStatus = (<HTMLInputElement>document.getElementById('streamStatus'))
             //     streamStatus.innerHTML = 'Connected to '+ event.serverId
@@ -219,7 +219,7 @@ export default class StreamingView {
                 // console.log('FPS Event:', event)
                 document.getElementById('videoLatencyCounter').innerHTML = 'min: '+event.min+'ms / avg: '+event.avg+'ms / max: '+event.max+'ms'
             })
-            
+
             //
             // OLD FUNCTIONS BELOW
             //
@@ -249,12 +249,17 @@ export default class StreamingView {
             const activeStreamingView = (<HTMLInputElement>document.getElementById('actionBarStreamingViewActive'))
             const actionBarStreamingDisconnect = (<HTMLInputElement>document.getElementById('actionBarStreamingDisconnect'))
             const actionBarNexusMenu = (<HTMLInputElement>document.getElementById('actionBarNexusMenu'))
-            
+
+            const streamingView = (<HTMLInputElement>document.getElementById('streamingView'))
+            streamingView.addEventListener('click', () => {
+                this._application._StreamingView._streamClient._xCloudPlayer.getChannelProcessor('input').pressButton(0, { Nexus: 1 })
+            })
+
             const actionBarStreamingDisconnectElem = (<HTMLInputElement>document.getElementById('actionBarStreamingDisconnect'))
             activeStreamingView.style.display = (this._streamActive === true) ? 'block': 'none'
             actionBarStreamingDisconnectElem.style.display = (this._streamActive === true) ? 'block': 'none'
             actionBarNexusMenu.style.display = (this._streamActive === true) ? 'block': 'none'
-            
+
             actionBarStreamingDisconnect.addEventListener('click', () => {
                 this._streamClient.disconnect()
             })

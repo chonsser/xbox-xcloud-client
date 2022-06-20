@@ -39,7 +39,7 @@
     <input id="token_xcloud_msal_token" value="" type="hidden" />
 
     <div id="appRoot">
-      
+
       <div id="splashView" style="display:none;">
         <!--
           Splash View
@@ -162,13 +162,10 @@
         Streaming View
       -->
       <div id="streamingView" style="display:none;">
-        
+
         <div id="loadingScreen" style="display:none;">
-          <h1>Loading...</h1>
-
-          <div class="lds-ring"><div></div><div></div><div></div><div></div></div><br />
-
-          <p>We are getting your stream ready...</p>
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_fKiEMn.json"  background="transparent" speed="1" style="width: 800px; height: 600px;" autoplay></lottie-player>
           <p id="loadingStatus"></p>
         </div>
 
@@ -263,7 +260,7 @@
 
             <h1>Controls</h1>
             <p>Detected gamepads:</p>
-            
+
             <div id="settingsGamepads">Loading...</div>
 
           </div>
